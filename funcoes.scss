@@ -1,3 +1,6 @@
+/*
+ * CSS Opacity.
+ */
 @mixin opacidade($opacity){
 	-khtml-opacity: $opacity;
 	-moz-opacity: $opacity;
@@ -7,16 +10,28 @@
   	filter: alpha(opacity=$opacity-ie);
 }
 
+
+/*
+ * Adicionando Float e Width.
+ */
 @mixin containerFloat{
 	float: left;
 	width: 100%;
 }
 
+
+/*
+ * Fonte e Cor.
+ */
 @mixin fonte($tipo, $cor){
 	font: $tipo;
 	color: $cor;
 }
 
+
+/*
+ * CSS Transition.
+ */
 @mixin transition($valor){
 	-webkit-transition: #{$valor};
 	-moz-transition: #{$valor};
@@ -25,6 +40,10 @@
 	transition: #{$valor};
 }
 
+
+/*
+ * CSS Rodate.
+ */
 @mixin rotate($valor){
 	-webkit-transform: rotate($valor);
 	-moz-transform: rotate($valor);
@@ -32,12 +51,20 @@
 	transform: rotate($valor);
 }
 
+
+/*
+ * CSS Border Radius.
+ */
 @mixin borderRadius($valor){
 	-webkit-border-radius: $valor;
 	-moz-border-radius: $valor;
 	border-radius: $valor;
 }
 
+
+/*
+ * Gerando o font-face no projeto
+ */
 @mixin gerarFonte($nome, $arquivo){
     @font-face {
         font-family: $nome;
@@ -52,6 +79,10 @@
     }
 }
 
+
+/*
+ * Breakpoints para Responsivo
+ */
 @mixin breakpoint($point){
 	@if $point == tablet {
 		@media screen and (max-width: 1225px){ 
@@ -68,4 +99,25 @@
 			@content;
 		}
 	}
+}
+
+
+/*
+ * Resetando todo o CSS e adicionado classe na imagem para o WordPress.
+ */
+@mixin resetCss(){
+	body {margin: 0; padding: 0; font: 12px $arial; color: #46484a; background: #FFF; webkit-text-size-adjust: none; -webkit-font-smoothing: antialiased; overflow-x: hidden;}
+	div, small, span, h1, h2, h3, h4, h5, h6, a, p, ul, li, img, form, label, button, input, select, textarea, dl, dt, dd, time {margin: 0; padding: 0;}
+	nav, footer, canvas, details, dialog, article, header, aside, section, menu, video, address {margin: 0; padding: 0; display: block;}
+	h1, h2, h3, h4, h5, h6, address {font-weight: normal; font-style: normal;}
+
+	ul, li {list-style: none;}
+	a, button {cursor: pointer;}
+	a, img, button, input, textarea, div, canvas, article, section, select {outline: none; border: 0;}
+	a:link, a:visited, a:active, a:hover {text-decoration: none;}
+	textarea {overflow: auto; resize: none;}
+
+	img.alignleft, div.alignleft {float: left !important; margin: 0 15px 0 0 !important;}
+	img.alignright, div.alignright {float: right !important; margin: 0 0 0 15px !important;}
+	img.aligncenter, div.aligncenter {display: block !important; text-align: center !important; margin: 15px auto !important;}
 }
